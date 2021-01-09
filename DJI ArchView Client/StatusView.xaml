@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="DJI_ArchView_Client.StatusView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DJI_ArchView_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <RelativePanel Grid.Row="1" Padding="9" Grid.ColumnSpan="2">
+            <TextBlock x:Name="Text1" RelativePanel.AlignHorizontalCenterWithPanel="True"  Text="Status View" FontSize="16"  TextWrapping="Wrap" Height="50" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,0,0" />
+            <ListBox x:Name="serverListBox" Margin="0,-10,0,0" RelativePanel.Below="Text1" RelativePanel.AlignBottomWithPanel="True"  MinHeight="600" ScrollViewer.VerticalScrollMode="Enabled" VerticalAlignment="Stretch"/>
+        </RelativePanel>
+    </Grid>
+</Page>

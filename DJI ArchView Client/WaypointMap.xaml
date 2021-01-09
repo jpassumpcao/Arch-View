@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="DJI_ArchView_Client.WaypointMap"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DJI_ArchView_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <RelativePanel Margin="8,0,0,0">
+            <Button x:Name="btnLoadCoord" Click="btnLoadCoord_Click">Load Coordinates...</Button>
+            <Button x:Name="btnSaveCoord" RelativePanel.RightOf="btnLoadCoord" Margin="8,0,0,0" Click="btnSaveCoord_Click">Save Coordinates...</Button>
+            <Button x:Name="btnStartSimulation" RelativePanel.RightOf="btnSaveCoord" Margin="8,0,0,0" IsEnabled="False">Start Simulation</Button>
+            <Button x:Name="btnStartMission" RelativePanel.RightOf="btnStartSimulation" Margin="8,0,0,0" IsEnabled="False" Click="btnStartMission_Click">Start Mission</Button>
+            <TextBlock x:Name="lbHeight" RelativePanel.RightOf="btnStartMission" RelativePanel.AlignVerticalCenterWith="btnStartMission" Margin="8,0,0,0">Flight Height (m):</TextBlock>
+            <TextBox x:Name="txHeight" RelativePanel.RightOf="lbHeight" Margin="8,0,0,0" Text="" PlaceholderText="3-30" InputScope="Number"/>
+            <TextBlock x:Name="lbMaxSpeed" RelativePanel.RightOf="txHeight" RelativePanel.AlignVerticalCenterWith="btnStartMission" Margin="8,0,0,0">Max Flight Speed (m/s):</TextBlock>
+            <TextBox x:Name="txMaxSpeed" RelativePanel.RightOf="lbMaxSpeed" Margin="8,0,0,0" Text="" PlaceholderText="2-15" InputScope="Number"/>
+            <TextBlock x:Name="lbWaypointState" RelativePanel.RightOf="txMaxSpeed" Margin="8,0,0,0" FontSize="9">Waypoint state:</TextBlock>
+            <TextBlock x:Name="lbMissionState" RelativePanel.RightOf="txMaxSpeed" RelativePanel.Below="lbWaypointState" Margin="8,0,0,0" FontSize="9">Mission state:</TextBlock>
+        </RelativePanel>
+        <maps:MapControl Grid.Column="1"
+                ZoomInteractionMode="GestureAndControl"
+                TiltInteractionMode="GestureAndControl"
+                x:Name="FlyZoneMap"
+                ZoomLevel="18"
+                Margin="8,35,0,0" MapServiceToken="PXUyvY1h2CcTCWxMGyC4~WEV3z8TTgG0NQoHIEmMZaA~AlzBqXpMJ5NNVo7DbXOy_BRDt_10Zh8izFAMMY5j3BYZ1bzbDOpi8YyySAZGIjF7" MapTapped="FlyZoneMap_MapTapped" >
+        </maps:MapControl>
+    </Grid>
+</Page>

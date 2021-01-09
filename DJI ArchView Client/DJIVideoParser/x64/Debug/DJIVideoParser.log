@@ -1,0 +1,2 @@
+﻿  DJIVideoParser.vcxproj -> C:\Users\supra\source\repos\DJI ArchView Client\x64\Debug\DJIVideoParser\DJIVideoParser.dll
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VisualStudio\v16.0\AppxPackage\Microsoft.AppXPackage.Targets(1254,5): warning APPX1503: O projeto contém 1 itens que representam o manifesto de aplicativo: ..\djiuwpsample\package.appxmanifest. Manifestos de aplicativo que não são usados para produzir pacotes de aplicativos serão ignorados.

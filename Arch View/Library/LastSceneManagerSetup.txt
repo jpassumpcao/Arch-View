@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Mapbox/Examples/0_PrefabScenes/Location-basedGame.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0

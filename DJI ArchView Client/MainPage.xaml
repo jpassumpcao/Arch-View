@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="DJI_ArchView_Client.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DJI_ArchView_Client"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Unloaded="OnUnloaded">
+
+    <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="69*"/>
+            <ColumnDefinition Width="1085*"/>
+            <ColumnDefinition Width="346*" MinWidth="250"/>
+        </Grid.ColumnDefinitions>
+
+        
+
+        <RelativePanel Grid.Row="0" Grid.ColumnSpan="3" Background="#FF4545D8">
+            <Image x:Name="BatteryLevelSymbol" Width="40" Height="30" RelativePanel.AlignRightWithPanel="true" Source="Assets/Battery0.png" Stretch="None"/>
+            <Image x:Name="WifiSignalSymbol" Width="50" Height="30" RelativePanel.LeftOf="BatteryLevelSymbol" Margin="5,0" Source="Assets/WIFI0.png" Stretch="None"/>
+            <Image x:Name="GPSSignalSymbol" Width="50" Height="30" RelativePanel.LeftOf="WifiSignalSymbol" Margin="5,0" Source="Assets/GPS0.png" Stretch="None"/>
+        </RelativePanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" Padding="15,15">
+            <TextBlock>Fly Mode:</TextBlock>
+            <TextBlock x:Name="flymode" FontStyle="Italic">fm</TextBlock>
+            <TextBlock>Latitude:</TextBlock>
+            <TextBlock x:Name="latitude" FontStyle="Italic">lat</TextBlock>
+            <TextBlock>Longitude:</TextBlock>
+            <TextBlock x:Name="longitude" FontStyle="Italic">lon</TextBlock>
+            <TextBlock>Altitude:</TextBlock>
+            <TextBlock x:Name="altitude" FontStyle="Italic">alt</TextBlock>
+            <TextBlock>Attitude:</TextBlock>
+            <TextBlock x:Name="attitude" FontStyle="Italic">at</TextBlock>
+            <TextBlock>Velocity:</TextBlock>
+            <TextBlock x:Name="velocity" FontStyle="Italic">vel</TextBlock>
+            <TextBlock>Yaw:</TextBlock>
+            <TextBlock x:Name="yaw" FontStyle="Italic">yaw</TextBlock>
+            <Button x:Name="WorkMode" HorizontalAlignment="Stretch" Click="WorkMode_Click" Margin="0,9,0,0">Camera WorkMode</Button>
+            <Button x:Name="TakePicture" HorizontalAlignment="Stretch" Margin="0,9,0,0" Background="#332273FF" Visibility="Collapsed">Take Picture</Button>
+            <Button x:Name="btnCompass" HorizontalAlignment="Stretch" Margin="0,9,0,0" Click="btnCompass_Click">Compass Callibration</Button>
+            <ToggleSwitch x:Name="tsTakeOff" Header="TakeOff" Toggled="tsTakeoff_Toggled"/>
+            <ToggleSwitch x:Name="tsAutoLanding" Header="AutoLanding" Toggled="tsAutoLanding_Toggled"/>
+            <ToggleSwitch x:Name="tsGoHome"  Header="GoHome" IsEnabled="False"/>
+        </StackPanel>
+        <SwapChainPanel Grid.Row="1" Visibility="Visible"  Grid.Column="2" x:Name="swapChainPanel" MinHeight="200" VerticalAlignment="Bottom" Margin="0,0,9,9" />
+        <NavigationView x:Name="NavigationViewControl" IsBackButtonVisible="Collapsed" IsSettingsVisible="False" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" SelectionChanged="NavigationViewControl_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="status" Content="Status View" Icon="GoToStart" x:Name="StatusView" IsSelected="True" KeyUp="StatusView_KeyUp" />
+                <NavigationViewItem Tag="waypoint" Content="Waypoint Map" Icon="Globe" x:Name="WaypointMap" KeyUp="WaypointMap_KeyUp" />
+            </NavigationView.MenuItems>
+            <ScrollViewer>
+                <Frame x:Name="Content" Padding="5">
+                    </Frame>
+            </ScrollViewer>
+        </NavigationView>
+    </Grid>
+</Page>
